@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.css" />
+        <style type="text/css">
+          body {
+              font: 10pt sans;
+          }
+
+          #network {
+              width: 100%;
+              height: 800px;
+              background: white;
+              border: 1px solid lightgray;
+          }
+      </style>
+        <script type="text/javascript">
+            function main() {
+                var graph = {
+                    nodes: new vis.DataSet([
+                      {"id": "0", "label": "Gichin Funakoshi", "level": 0, "image": "resources/img/gichin.funakoshi.jpg"}, 
+                      
+                      {"id": "0.1", "label": "Masatoshi Nakayama", "level": 1, "image": "resources/img/masatoshi.nakayama.jpg"},
+                      
+                      {"id": "0.1.1", "label": "Preston Carter", "level": 2, "image": "resources/img/preston.carter.jpg"},
+                      
+                      {"id": "0.1.1.1", "label": "William Hodgkiss", "level": 3, "image": "resources/img/william.hodgkiss.jpg"},
+
+                      {"id": "0.1.1.1.1", "label": "Gary Campbell", "level": 4, "image": "resources/img/gary.campbell.jpg"},
+
+                      {"id": "0.1.1.1.1.1", "label": "Dennis LaRosa", "level": 5, "image": "resources/img/dennis.larosa.jpg"},
+
+                      {"id": "0.1.1.1.1.1.1", "label": "Daniel Stamate", "level": 6, "image": "resources/img/daniel.stamate.jpg"},
+                      
+                    ]),
+                    edges: new vis.DataSet([
+                      {"from": "0", "to": "0.1"},
+                      {"from": "0.1", "to": "0.1.1"},                      
+                      {"from": "0.1.1", "to": "0.1.1.1"},
+                      {"from": "0.1.1.1", "to": "0.1.1.1.1"},
+                      {"from": "0.1.1.1.1", "to": "0.1.1.1.1.1"},
+                      {"from": "0.1.1.1.1.1", "to": "0.1.1.1.1.1.1"},
+                    ])
+                };
+                
+                var options = {
+                  nodes: {
+                    borderWidth: 1,
+                    borderWidthSelected: 1,
+                    shape: "image",
+                    color: {
+                      border: 'lightgray',
+                      background: 'white',
+                      highlight: {
+                        border: 'lightgray',
+                        background: 'lightblue'
+                      },
+                      hover: {
+                        border: 'lightgray',
+                        background: 'lightblue'
+                      }
+                    }
+                  },
+                  edges: {
+                    smooth: {
+                      type: 'cubicBezier',
+                      forceDirection: 'vertical',
+                      roundness: 1
+                    },
+                    color: 'lightgray'
+                  },
+                  layout: {
+                    hierarchical: {
+                      direction: 'UD',
+                      nodeSpacing: 150
+                    }
+                  },
+                  interaction: {dragNodes :false},
+                  physics:false
+                  };
+                var network = new vis.Network(document.getElementById("network"), graph, options);
+            }
+        </script>
+    </head>
+    <body onload="main();">
+        <div id="network"></div>
+    </body>
+</html>
