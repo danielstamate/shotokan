@@ -22,6 +22,7 @@
                       {"id": "0", "label": "Gichin Funakoshi", "level": 0, "image": "resources/img/gichin.funakoshi.jpg"}, 
                       
                       {"id": "0.1", "label": "Masatoshi Nakayama", "level": 1, "image": "resources/img/masatoshi.nakayama.jpg"},
+                      {"id": "0.2", "label": "Hirokazu Kanazawa", "level": 1, "image": ""},
                       
                       {"id": "0.1.1", "label": "Preston Carter", "level": 2, "image": "resources/img/preston.carter.jpg"},
                       
@@ -30,16 +31,21 @@
                       {"id": "0.1.1.1.1", "label": "Gary Campbell", "level": 4, "image": "resources/img/gary.campbell.jpg"},
 
                       {"id": "0.1.1.1.1.1", "label": "Dennis LaRosa", "level": 5, "image": "resources/img/dennis.larosa.jpg"},
+                      {"id": "0.1.1.1.1.2", "label": "Judith Kranetz", "level": 5, "image": ""},
+                      {"id": "0.1.1.1.1.3", "label": "Peter Lachance", "level": 5, "image": ""},
 
                       {"id": "0.1.1.1.1.1.1", "label": "Daniel Stamate", "level": 6, "image": "resources/img/daniel.stamate.jpg"},
                       
                     ]),
                     edges: new vis.DataSet([
                       {"from": "0", "to": "0.1"},
+                      {"from": "0", "to": "0.2"},
                       {"from": "0.1", "to": "0.1.1"},                      
                       {"from": "0.1.1", "to": "0.1.1.1"},
-                      {"from": "0.1.1.1", "to": "0.1.1.1.1"},
+                      {"from": "0.1.1.1", "to": "0.1.1.1.1.1"},                      
                       {"from": "0.1.1.1.1", "to": "0.1.1.1.1.1"},
+                      {"from": "0.1.1.1.1", "to": "0.1.1.1.1.2"},
+                      {"from": "0.1.1.1.1", "to": "0.1.1.1.1.3"},
                       {"from": "0.1.1.1.1.1", "to": "0.1.1.1.1.1.1"},
                     ])
                 };
